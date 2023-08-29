@@ -71,8 +71,6 @@
     description = "Lactose";
     extraGroups = [ "input" "networkmanager" "wheel" ];
   };
-  home-manager.useGlobalPkgs = true;
-  home-manager.users.lactose = import ./home.nix;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
