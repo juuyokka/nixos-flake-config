@@ -19,15 +19,15 @@
                 mountpoint = "/boot";
               };
             };
-            swap = {
-              start = "1G";
-              end = "21G";
-              content = {
-                type = "swap";
-                randomEncryption = true;
-                resumeDevice = true; # resume from hiberation from this device
-              };
-            };
+            # swap = {
+            #   start = "1G";
+            #   end = "21G";
+            #   content = {
+            #     type = "swap";
+            #     randomEncryption = true;
+            #     resumeDevice = true; # resume from hiberation from this device
+            #   };
+            # };
             root = {
               size = "100%";
               content = {
