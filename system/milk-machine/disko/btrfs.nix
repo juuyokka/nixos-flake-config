@@ -38,7 +38,7 @@
                 subvolumes = {
                   # Subvolume name is different from mountpoint
                   "/rootfs" = {
-                    mountOptions = [ "compress=zstd" "noatime" "rootfstype=btrfs" ];
+                    mountOptions = [ "compress=zstd" "noatime" ];
                     mountpoint = "/";
                   };
                   # Parent is not mounted so the mountpoint must be set
@@ -69,7 +69,7 @@
                 subvolumes = {
                   # Subvolume name is the same as the mountpoint
                   "/home" = {
-                    mountOptions = [ "compress=zstd" ];
+                    mountOptions = [ "compress=zstd" "noatime" ];
                     mountpoint = "/home";
                   };
                 };
