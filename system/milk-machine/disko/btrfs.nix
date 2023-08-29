@@ -21,7 +21,7 @@
             };
             swap = {
               start = "1G";
-              size = "20G";
+              end = "21G";
               content = {
                 type = "swap";
                 randomEncryption = true;
