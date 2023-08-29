@@ -11,7 +11,7 @@
               priority = 1;
               name = "ESP";
               start = "1M";
-              end = "1GiB";
+              end = "1G";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -20,8 +20,8 @@
               };
             };
             swap = {
-              start = "1GiB";
-              size = "20GiB";
+              start = "1G";
+              size = "20G";
               content = {
                 type = "swap";
                 randomEncryption = true;
