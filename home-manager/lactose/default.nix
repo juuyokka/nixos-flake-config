@@ -8,8 +8,6 @@ in {
     username = "lactose";
     homeDirectory = "/home/${username}";
   };
-
-  programs.home-manager.enable = true;
   
   xdg.enable = true;
 
@@ -37,4 +35,5 @@ in {
   ];
 
   home.stateVersion = "23.05";
+  programs.home-manager.enable = true;
 }

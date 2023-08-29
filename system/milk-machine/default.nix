@@ -12,13 +12,21 @@
 
   nix = {
     package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
+    settings.experimental-features = [ "nix-command" "flakes" ];
   };
 
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
+
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+    sudo.extraConfig = ''
+      %wheel ALL=NOPASSWD: \
+        /run/current-system/sw/bin/shutdown, \
+        /run/current-system/sw/bin/reboot
+    '';
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -28,22 +36,13 @@
   # Enable powertop
   powerManagement.powertop.enable = true;
 
-  networking.hostName = "milk-machine"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "milk-machine";    # Define your hostname.
+  networking.networkmanager.enable = true; # Enable networking
+  # networking.wireless.enable = true;     # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -61,16 +60,6 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
-  security.rtkit.enable = true;
-
-  # Configure polkit
-  security.polkit.enable = true;
-  security.sudo.extraConfig = ''
-    %wheel ALL=NOPASSWD: \
-      /run/current-system/sw/bin/shutdown, \
-      /run/current-system/sw/bin/reboot
-  '';
-
   # Enable zsh and set it as the default login shell
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
@@ -82,14 +71,9 @@
     extraGroups = [ "input" "networkmanager" "wheel" ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    git
     home-manager
+    git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
