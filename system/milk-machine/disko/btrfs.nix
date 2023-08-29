@@ -10,8 +10,7 @@
             ESP = {
               priority = 1;
               name = "ESP";
-              start = "1M";
-              end = "1G";
+              size = "1G";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -19,15 +18,14 @@
                 mountpoint = "/boot";
               };
             };
-            # swap = {
-            #   start = "1G";
-            #   end = "21G";
-            #   content = {
-            #     type = "swap";
-            #     randomEncryption = true;
-            #     resumeDevice = true; # resume from hiberation from this device
-            #   };
-            # };
+            swap = {
+              size = "20G";
+              content = {
+                type = "swap";
+                randomEncryption = true;
+                resumeDevice = true; # resume from hiberation from this device
+              };
+            };
             root = {
               size = "100%";
               content = {
