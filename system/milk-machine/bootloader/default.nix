@@ -8,7 +8,7 @@
         efiSupport = true;
         device = "nodev";
         configurationLimit = 20;
-        theme = import ./grub-theme.nix { inherit pkgs; };
+        theme = import ./grub-theme { inherit pkgs; };
       };
     };
   };

@@ -1,0 +1,19 @@
+--- ./nixos/theme.txt
++++ ./nixos/theme.txt
+@@ -17,7 +17,7 @@
+   width = 55%
+   height = 65%
+   item_font = "Ubuntu Regular 20"
+-  item_color = "#cccccc"
++  item_color = "#40625d"
+   selected_item_color = "#ffffff"
+   icon_width = 36
+   icon_height = 36
+@@ -37,6 +37,6 @@
+   align = "center"
+   id = "__timeout__"
+   text = "Selected OS will start in %d seconds"
+-  color = "#cccccc"
++  color = "#44b8ae"
+   font = "Ubuntu Regular 17"
+ }
