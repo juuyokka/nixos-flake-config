@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "Lactose's NixOS Configuration";
   # ls /dev/disk/by-id/
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
