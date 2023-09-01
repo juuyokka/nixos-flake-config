@@ -7,7 +7,7 @@ pkgs.stdenv.mkDerivation rec {
     ./res
     (pkgs.fetchFromGitHub {
       owner = "AdisonCavani";
-      repo = "distro-grub-theme";
+      repo = "distro-grub-themes";
       rev = version;
       hash = "sha256-U5QfwXn4WyCXvv6A/CYv9IkR/uDx4xfdSgbXDl5bp9M=";
     })
