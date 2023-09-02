@@ -4,7 +4,7 @@
   imports = [
     ./modules/fonts.nix
     ./modules/sway.nix
-    ./modules/alacritty.nix
+    ./modules/alacritty
   ];
   
   home = rec {
