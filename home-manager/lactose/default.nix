@@ -2,8 +2,8 @@
 {
   # https://mipmip.github.io/home-manager-option-search
   imports = [
-    ./fonts.nix
-    ./sway
+    ./modules/fonts.nix
+    ./modules/sway.nix
   ];
   
   home = rec {
