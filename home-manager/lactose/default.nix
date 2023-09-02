@@ -1,6 +1,5 @@
-{ pkgs, ... }: let
-  discord = pkgs.discord.override { withOpenASAR = true; };
-in {
+{ pkgs, ... }:
+{
   # https://mipmip.github.io/home-manager-option-search
   imports = [
     ./fonts.nix
@@ -33,7 +32,6 @@ in {
     fastfetch
     alacritty
     firefox
-    discord
     btop
   ];
 
