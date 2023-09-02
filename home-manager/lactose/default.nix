@@ -3,6 +3,7 @@
 in {
   # https://mipmip.github.io/home-manager-option-search
   imports = [
+    ./fonts.nix
     ./sway
   ];
   
