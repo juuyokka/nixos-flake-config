@@ -14,6 +14,12 @@
   
   xdg.enable = true;
 
+  programs.git = {
+    enable = true;
+    userName = "juuyokka";
+    userEmail = "lactose@milk-machine.local";
+  };
+
   programs.zsh = {
     enable = true;
     # sessionVariables = {
