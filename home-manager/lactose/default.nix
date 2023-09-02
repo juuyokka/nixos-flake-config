@@ -2,7 +2,9 @@
   discord = pkgs.discord.override { withOpenASAR = true; };
 in {
   # https://mipmip.github.io/home-manager-option-search
-  imports = [];
+  imports = [
+    ./sway
+  ];
   
   home = rec {
     username = "lactose";
