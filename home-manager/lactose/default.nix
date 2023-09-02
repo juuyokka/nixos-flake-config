@@ -4,6 +4,7 @@
   imports = [
     ./modules/fonts.nix
     ./modules/sway.nix
+    ./modules/alacritty.nix
   ];
   
   home = rec {
@@ -30,7 +31,6 @@
   home.packages = with pkgs; [
     dunst
     fastfetch
-    alacritty
     firefox
     btop
   ];
