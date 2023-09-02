@@ -17,7 +17,7 @@
   programs.git = {
     enable = true;
     userName = "juuyokka";
-    userEmail = "lactose@milk-machine.local";
+    userEmail = "15185244+juuyokka@users.noreply.github.com";
   };
 
   programs.zsh = {
