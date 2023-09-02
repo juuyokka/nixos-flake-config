@@ -32,6 +32,9 @@
   # Enable powertop
   powerManagement.powertop.enable = true;
 
+  # Enable OpenGL
+  hardware.opengl.enable = true;
+
   networking.hostName = "milk-machine";    # Define your hostname.
   networking.networkmanager.enable = true; # Enable networking
   # networking.wireless.enable = true;     # Enables wireless support via wpa_supplicant.
