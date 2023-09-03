@@ -83,6 +83,7 @@
 
   environment.systemPackages = with pkgs; [
     home-manager
+    psmisc
     git
   ];
 
