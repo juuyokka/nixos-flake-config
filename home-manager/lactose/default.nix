@@ -50,7 +50,9 @@
     dunst
     fastfetch
     firefox
+    chromium
     btop
+    webcord
   ];
 
   home.stateVersion = "23.05";
