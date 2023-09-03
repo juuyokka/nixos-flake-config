@@ -35,6 +35,14 @@
   # Enable OpenGL
   hardware.opengl.enable = true;
 
+  # Enable sound
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
   networking.hostName = "milk-machine";    # Define your hostname.
   networking.networkmanager.enable = true; # Enable networking
   # networking.wireless.enable = true;     # Enables wireless support via wpa_supplicant.
