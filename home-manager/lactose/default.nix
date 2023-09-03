@@ -16,6 +16,15 @@
   };
   
   xdg.enable = true;
+  services.ssh-agent.enable = true;
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      Host *
+        AddKeysToAgent yes
+	IdentityFile ~/.ssh/id_ed25519
+    '';
+  };
 
   programs.git = {
     enable = true;
