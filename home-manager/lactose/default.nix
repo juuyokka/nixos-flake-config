@@ -10,6 +10,9 @@
   home = rec {
     username = "lactose";
     homeDirectory = "/home/${username}";
+    sessionVariables = {
+      NIXOS_OZONE_WL = 1;
+    };
   };
   
   xdg.enable = true;
