@@ -3,8 +3,10 @@
   # https://mipmip.github.io/home-manager-option-search
   imports = [
     ./modules/fonts.nix
-    ./modules/sway.nix
+    # ./modules/sway.nix
+    ./modules/hyprland.nix
     ./modules/alacritty
+    ./modules/neovim.nix
   ];
   
   home = rec {
@@ -34,13 +36,17 @@
 
   programs.zsh = {
     enable = true;
-    # sessionVariables = {
-    #   EDITOR = "nvim";
-    # };
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
+    shellAliases = {
+      vi = "nvim";
+      vim = "nvim";
+    };
   };
 
   programs.neovim = {
-    enable = true;
+    # enable = true;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;

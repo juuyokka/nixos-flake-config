@@ -9,6 +9,17 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland.url = "github:hyprwm/Hyprland";
+    hy3 = {
+      url = "github:outfoxxed/hy3";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = inputs:
@@ -58,9 +69,9 @@
     };
 
     nixConfig = {
-      extra-trusted-public-keys = [];
       builders-use-substitutes = true;
-      extra-substituters = [];
+      extra-trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+      extra-substituters = [ "https://hyprland.cachix.org" ];
     };
   };
 }

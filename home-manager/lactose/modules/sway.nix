@@ -10,8 +10,9 @@
       terminal = "alacritty";
       modifier = "Mod4";
 
-      startup = [
-        { command = "${pkgs.swww}/bin/swww init"; }
+      startup = map (cmd: { command = cmd; }) [
+        "${pkgs.swww}/bin/swww init"
+	"exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway"
       ];
 
       window = {
