@@ -9,6 +9,8 @@
     ];
 
     bind = [
+      ",XF86AudioMicMute, exec, pamixer --default-source -t"
+      ",XF86AudioMute, exec, pamixer -t"
       "$mod, T, exec, alacritty"
       "$mod, Q, hy3:killactive"
       "$mod, M, exit"
