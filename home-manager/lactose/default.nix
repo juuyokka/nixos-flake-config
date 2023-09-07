@@ -4,7 +4,7 @@
   imports = [
     ./modules/fonts.nix
     # ./modules/sway.nix
-    ./modules/hyprland.nix
+    ./modules/hyprland
     ./modules/alacritty
     ./modules/neovim.nix
   ];
@@ -56,6 +56,7 @@
   
   home.packages = with pkgs; [
     dunst
+    pamixer
     fastfetch
     firefox
     chromium
