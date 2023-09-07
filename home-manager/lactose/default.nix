@@ -36,12 +36,14 @@
 
   programs.zsh = {
     enable = true;
+    enableCompletion = true;
     sessionVariables = {
       EDITOR = "nvim";
     };
     shellAliases = {
       vi = "nvim";
       vim = "nvim";
+      hypr = "Hyprland";
     };
   };
 

@@ -14,8 +14,14 @@
       modules-right = [
 	"battery#internal"
 	"battery#external"
+	"wireplumber"
         "clock"
       ];
+
+      wireplumber = {
+        format = "{icon}  {volume}%";
+	format-icons = [ "" "" "" ];
+      };
 
       clock = {
         format = "{:%a %d/%m/%y %T}";

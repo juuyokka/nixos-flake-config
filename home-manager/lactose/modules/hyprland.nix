@@ -1,8 +1,18 @@
 { pkgs, inputs, ... }:
 let
   inherit (inputs) hyprland hy3;
+
+  format_multiline = s: with builtins;
+    concatStringsSep " " (concatLists(
+      filter isList (map
+        (match "[[:s:]]*(.+)") (pkgs.lib.strings.splitString "\n" s)
+      )
+    ));
 in {
-  imports = [ ./waybar.nix ];
+  imports = [ 
+    ./waybar.nix
+    ./tofi.nix
+  ];
   home.packages = [ pkgs.swww ];
 
   wayland.windowManager.hyprland = {
@@ -13,6 +23,10 @@ in {
     settings = {
       monitor = [ "eDP-1,1920x1080@60,0x0,1" ];
       "$mod" = "SUPER";
+      "$menu" = format_multiline ''
+        tofi-run --ascii-input true --num-results 5 --hint-font false
+	| xargs hyprctl dispatch exec
+      '';
 
       exec-once = [
         "swww init"
@@ -36,17 +50,27 @@ in {
         rounding = 8;
       };
 
+      animations = {
+	bezier = [ "easeInOutExpo,0.87,0,0.13,1" ];
+	animation = [
+	  "fade,0,1,default"
+	  "workspaces,1,2,easeInOutExpo"
+	];
+      };
+
       windowrulev2 = [
         "opacity 0.8,class:(Alacritty)"
       ];
 
+      bindr = [
+	"CTRL_SHIFT,M,pass,^(WebCord)$"
+      ];
+
       bind = [
         "$mod, T, exec, alacritty"
-        # "$mod, L, exec, swaylock"
-        # "$mod, S, exec, grimshot copy area"
-        "$mod, Q, hy3:killactive,"
-        "$mod, M, exit,"
-        # "$mod, E, exec, thunar"
+        "$mod, Q, hy3:killactive"
+        "$mod, M, exit"
+	"$mod, D, exec, $menu"
         "$mod, F, fullscreen"
         "$mod, V, hy3:makegroup, v, ephemeral"
         "$mod, B, hy3:makegroup, h, ephemeral"
@@ -58,6 +82,10 @@ in {
         "$mod SHIFT, L, hy3:movewindow, r"
         "$mod SHIFT, K, hy3:movewindow, u"
         "$mod SHIFT, J, hy3:movewindow, d"
+        "$mod CTRL, H, resizeactive, -10 0"
+        "$mod CTRL, L, resizeactive, 10 0"
+        "$mod CTRL, K, resizeactive, 0 10"
+        "$mod CTRL, J, resizeactive, 0 -10"
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3"
