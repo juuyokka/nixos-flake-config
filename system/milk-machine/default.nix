@@ -14,6 +14,7 @@
   nix = {
     package = pkgs.nixFlakes;
     settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.trusted-users = [ "lactose" ];
   };
 
   home-manager.useUserPackages = true;
