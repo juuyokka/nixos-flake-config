@@ -23,6 +23,7 @@ in {
     settings = {
       monitor = [ "eDP-1,1920x1080@60,0x0,1" ];
       "$mod" = "SUPER";
+      "$resize_speed" = 20;
       "$menu" = format_multiline ''
         tofi-run --ascii-input true --num-results 5 --hint-font false
 	| xargs hyprctl dispatch exec
@@ -62,11 +63,15 @@ in {
         "opacity 0.8,class:(Alacritty)"
       ];
 
-      bindr = [
-	"CTRL_SHIFT,M,pass,^(WebCord)$"
+      binde = [
+        "$mod CTRL, H, resizeactive, -$resize_speed 0"
+        "$mod CTRL, L, resizeactive, $resize_speed 0"
+        "$mod CTRL, K, resizeactive, 0 -$resize_speed"
+        "$mod CTRL, J, resizeactive, 0 $resize_speed"
       ];
 
       bind = [
+	# "CTRL_SHIFT,M,pass,^(WebCord)$"
         "$mod, T, exec, alacritty"
         "$mod, Q, hy3:killactive"
         "$mod, M, exit"
@@ -82,10 +87,6 @@ in {
         "$mod SHIFT, L, hy3:movewindow, r"
         "$mod SHIFT, K, hy3:movewindow, u"
         "$mod SHIFT, J, hy3:movewindow, d"
-        "$mod CTRL, H, resizeactive, -10 0"
-        "$mod CTRL, L, resizeactive, 10 0"
-        "$mod CTRL, K, resizeactive, 0 10"
-        "$mod CTRL, J, resizeactive, 0 -10"
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3"
